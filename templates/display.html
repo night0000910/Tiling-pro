@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+    <p class="display-5">タイリングが完成しました！！</p>
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <img src="data:image/png;base64, {{graph | safe}} " alt="" width="600" height="450">
+        {% if type == "line" %}
+        <p class="lead">横線の傾き : {{horizontal_tilt}}</p>
+        <p class="lead">タイルの横幅 : {{horizontal_interval}}</p>
+        <p class="lead">縦線の傾き : {{vertical_tilt}}</p>
+        <p class="lead">タイルの縦幅 : {{vertical_interval}}</p>
+        <p class="lead">横方向の最大値 : {{horizontal_max}}</p>
+        <p class="lead">縦方向の最大値 : {{vertical_max}}</p>
+        {% elif type == "parabola" %}
+        <p class="lead">放物線の傾き : {{parabola_tilt}}</p>
+        <p class="lead">タイルの横幅 : {{horizontal_interval}}</p>
+        <p class="lead">タイルの縦幅 : {{vertical_interval}}</p>
+        <p class="lead">横方向の最大値 : {{horizontal_max}}</p>
+        <p class="lead">縦方向の最大値 : {{vertical_max}}</p>
+        {% elif type == "wave" %}
+        <p class="lead">タイルの縦幅 : {{vertical_interval}}</p>
+        <p class="lead">一タイルあたりの波の数 : {{waves_number}}</p>
+        <p class="lead">横方向の最大値 : {{horizontal_max}}</p>
+        <p class="lead">縦方向の最大値 : {{vertical_max}}</p>
+        {% endif %}
+    </div>
+</main>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container">
+    <form action="" method="POST">{% csrf_token %}
+      <h1 class="display-6">サインアップ</h1>
+      <p class="lead">{{error}}</p>
+      <label for="inputEmail" class="visually-hidden">ユーザー名</label>
+      <input type="text" id="inputEmail" class="form-control" placeholder="ユーザー名" name="username" required autofocus>
+      <label for="inputPassword" class="visually-hidden">パスワード</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" name="password" required>
+      <button class="w-100 btn btn-lg btn-info" type="submit">サインアップ</button>
+    </form>
+    <a href="{% url 'login' %}" class="btn btn-outline-warning">ログイン</a>
+</main>
+{% endblock content %}
